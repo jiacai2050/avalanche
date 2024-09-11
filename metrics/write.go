@@ -162,7 +162,8 @@ func (c *Client) write() error {
 				}
 				err := c.Store(context.TODO(), req)
 				if err != nil {
-					merr.Add(err)
+					log.Printf("Store failed, err:%v", err)
+					// merr.Add(err)
 					return
 				}
 				mtx.Lock()
